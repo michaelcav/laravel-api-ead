@@ -15,8 +15,9 @@ class CreateSupportsTable extends Migration
     {
         Schema::create('supports', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('user_id')->nullable(false);
             $table->uuid('lesson_id')->nullable(false);
-            $table->enum('status', ['P', 'A','C'])->default('P');
+            $table->enum('status', ['P', 'A', 'C'])->default('P');
             $table->text('description');
             $table->timestamps();
         });
