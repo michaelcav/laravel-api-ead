@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Api\{
     CourseController,
+    LessonController,
     ModuleController,
-    LessonController
 };
+
 
 use Illuminate\Support\Facades\Route;
 
