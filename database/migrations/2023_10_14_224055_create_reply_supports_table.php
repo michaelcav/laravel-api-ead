@@ -18,6 +18,7 @@ class CreateReplySupportsTable extends Migration
             $table->uuid('user_id')->nullable(false);
             $table->uuid('support_id')->nullable(false);
             $table->text('description');
+            $table->timestamps();
         });
     }
 

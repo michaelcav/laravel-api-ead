@@ -32,7 +32,7 @@ class SupportRepository
                     $filter = $filters['filter'];
                     $query->where('description', 'LIKE', "%{$filter}%");
                 }
-            })->get();
+            })->orderBy('updated_at')->get();
     }
 
     public function createNewSupport(array $data): Support
@@ -56,6 +56,18 @@ class SupportRepository
             'description' => $data['description'],
             'user_id' => $user->id,
         ]);
+    }
+
+    public function createReplyToSupportId(string $supportId, array $data)
+    {
+        $user = $this->getUserAuth();
+
+        return $this->getSupport($supportId)
+                    ->replies()
+                    ->create([
+                        'description' => $data['description'],
+                        'user_id' => $user->id,
+                    ]);
     }
 
     private function getSupport(string $id)
