@@ -7,6 +7,7 @@ use App\Models\User;
 trait RepositoryTrait {
     private function getUserAuth(): User
     {
-        return User::first();
+        return auth()->user(); // true user
+        // return User::first(); fake user
     }
 }
