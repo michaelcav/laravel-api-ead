@@ -13,7 +13,7 @@ class LessonRepository {
     }
 
     public function getLessonsByModuleId(string $moduleId) {
-      return $this->entity->where('module_id', $moduleId)->get();
+      return $this->entity->where('module_id', $moduleId)->with('supports.replies')->get();
     }
 
     public function getLesson(string $identify) {
