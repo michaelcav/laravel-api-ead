@@ -7,8 +7,8 @@ use App\Repositories\Traits\RepositoryTrait;
 
 class ReplySupportRepository
 {
-
     use RepositoryTrait;
+
     protected $entity;
 
     public function __construct(ReplySupport $model)
@@ -16,16 +16,16 @@ class ReplySupportRepository
         $this->entity = $model;
     }
 
-
-    public function createReplyToSupport( array $data)
+    public function createReplyToSupport(array $data)
     {
         $user = $this->getUserAuth();
 
-        return $this->entity->replies()
-            ->create([
-                'support_id' => $data['support'],
-                'description' => $data['description'],
-                'user_id' => $user->id,
-            ]);
+        return $this->entity
+                    ->create([
+                        'support_id' => $data['support'],
+                        'description' => $data['description'],
+                        'user_id' => $user->id,
+                    ]);
     }
+
 }

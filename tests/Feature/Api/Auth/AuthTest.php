@@ -14,7 +14,7 @@ class AuthTest extends TestCase
 
     public function test_fail_auth()
     {
-        $response = $this->postJson('/auth', []);
+        $response = $this->postJson('/login', []);
 
         $response->assertStatus(422);
     }
@@ -23,7 +23,7 @@ class AuthTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->postJson('/auth', [
+        $response = $this->postJson('/login', [
             'email' => $user->email,
             'password' => 'password',
             'device_name' => 'test'
