@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReplySupportFactory extends Factory
 {
-
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
+     *
      */
     protected $model = ReplySupport::class;
 

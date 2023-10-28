@@ -20,13 +20,13 @@ class ReplySupport extends Model
 
     protected $touches = ['support'];
 
-    public function support()
-    {
-        return $this->belongsTo(Support::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function support()
+    {
+        return $this->belongsTo(Support::class);
     }
 }
